@@ -1,0 +1,142 @@
+metadata:
+  name: "BGM時間切り替え"
+  description: "ニコキタプレイリスト"
+
+automations:
+  - starters:
+      - type: time.schedule
+        at: 08:20
+        weekdays: [MON, TUE, WED, THU, FRI]
+    actions:
+      #朝確実に起動させるための措置（ダミー）
+      - type: time.delay
+        for: 30sec
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: true
+        devices: オフィス - オフィス
+      - type: time.delay
+        for: 1sec
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: false
+        devices: オフィス - オフィス
+      #ここからスタート
+      - type: assistant.command.OkGoogle
+        okGoogle: "YouTubeMusicでプレイリスト ニコキタNKHS00001 を再生して"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: true
+        devices: オフィス - オフィス
+      - type: time.delay
+        for: 30sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "リピート"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: false
+        devices: オフィス - オフィス
+
+  #午後のプレイリスト４０分間隔で再プレイ
+  - starters:
+      - type: time.schedule
+        at: 11:30
+        weekdays: [MON, TUE, WED, THU, FRI]
+    actions:
+      - type: assistant.command.OkGoogle
+        okGoogle: "YouTubeMusicでプレイリスト ニコキタNKHS00002 を再生して"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: true
+        devices: オフィス - オフィス
+      - type: time.delay
+        for: 30sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "リピート"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: false
+        devices: オフィス - オフィス
+
+  #昼のYouTube再生
+  - starters:
+      - type: time.schedule
+        at: 12:10
+        weekdays: [MON, TUE, WED, THU, FRI]
+    actions:
+      # - type: assistant.command.OkGoogle
+      #   okGoogle: "リピート"
+      #   devices: オフィス - オフィス
+      # - type: device.command.Mute # Mute or unmute the given device.
+      #   # Whether to mute or unmute the device.
+      #   mute: true
+      #   devices: オフィス - オフィス
+      # - type: time.delay
+      #   for: 5sec
+      # - type: device.command.Mute # Mute or unmute the given device.
+      #   # Whether to mute or unmute the device.
+      #   mute: false
+      # devices: オフィス - オフィス
+      - type: assistant.command.OkGoogle
+        okGoogle: "YouTubeで スターバックスBGM の 美味しいものと好きな音楽 を再生して"
+        devices: オフィス - オフィス
+
+  #午後のプレイリスト４０分間隔で再プレイ
+  - starters:
+      - type: time.schedule
+        at: 13:00
+        weekdays: [MON, TUE, WED, THU, FRI]
+    actions:
+      - type: assistant.command.OkGoogle
+        okGoogle: "YouTubeMusicでプレイリスト ニコキタNKHS00003 を再生して"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: true
+        devices: オフィス - オフィス
+      - type: time.delay
+        for: 30sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "リピート"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: false
+        devices: オフィス - オフィス
+
+  #夜のプレイリスト４０分間隔で再プレイ
+  - starters:
+      - type: time.schedule
+        at: 16:00
+        weekdays: [MON, TUE, WED, THU, FRI]
+    actions:
+      # - type: assistant.command.OkGoogle
+      #   # 既に流れている曲に対して頭から再生するためリピートを指示
+      #   okGoogle: "リピート"
+      #   devices: オフィス - オフィス
+      # - type: device.command.Mute # Mute or unmute the given device.
+      #   # Whether to mute or unmute the device.
+      #   mute: true
+      #   devices: オフィス - オフィス
+      # - type: time.delay
+      #   for: 5sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "YouTubeMusicでプレイリスト ニコキタNKHS00004 を再生して"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: true
+        devices: オフィス - オフィス
+      - type: time.delay
+        for: 30sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "リピート"
+        devices: オフィス - オフィス
+      - type: device.command.Mute # Mute or unmute the given device.
+        # Whether to mute or unmute the device.
+        mute: false
+        devices: オフィス - オフィス

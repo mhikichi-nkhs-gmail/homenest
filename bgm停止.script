@@ -1,0 +1,30 @@
+metadata:
+  name: "BGM停止スケジュール"
+  description: "指定した時間に音楽を止める"
+
+automations:
+  - starters:
+      - type: time.schedule
+        at: 19:15 # ← ここを音楽を止めたい時間に変えてください
+        # 今日（日曜日）も動くように設定しています
+        weekdays:
+          [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
+    actions:
+      # - type: assistant.command.OkGoogle
+      #   # 既に流れている曲に対して頭から再生するためリピートを指示
+      #   okGoogle: "リピート"
+      #   devices: "オフィス - オフィス"
+      # - type: device.command.Mute # Mute or unmute the given device.
+      #   # Whether to mute or unmute the device.
+      #   mute: true
+      #   devices: "オフィス - オフィス"
+      # - type: time.delay
+      #   # Adjust duration as needed. Supported units: sec, min, hour
+      #   for: 10sec
+      - type: assistant.command.OkGoogle
+        okGoogle: "音楽を止めて"
+        devices: オフィス - オフィス
+      # - type: device.command.Mute # Mute or unmute the given device.
+      #   # Whether to mute or unmute the device.
+      #   mute: false
+      #   devices: オフィス - オフィス

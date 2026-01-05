@@ -1,0 +1,78 @@
+# ------------------------------------------------------------------------------------------ #
+# Lines starting with “#” are comments and will be ignored by the automation.
+# Indentation determines hierarchy within the script.
+# Visit g.co/home/script-editor-docs for full documentation.
+# ------------------------------------------------------------------------------------------ #
+
+metadata:
+  name: BGM定期ミュート # Choose a short name that summarizes important starters and actions, like “Sunset lights”.
+  description: 再生40分制限を叩き起こす # Write a detailed description that includes everything the automation does, like “At sunset, on weekdays, close blinds, turn on lights to 50%, and play the sunset playlist on certain speakers.”
+
+automations:
+  # “starters” and “actions” are required; “conditions” are optional.
+  # Use Ctrl + Space to see autocomplete suggestions.
+
+  # ---- STARTERS ---- #
+  # Starters describe events that will start the automation.
+  # To add more than one starter, duplicate the "- type" section under "starters".
+  # If you add multiple starter events, any one of them happening will start the automation.
+  starters:
+    - type: time.schedule
+      # Required. Time to schedule automation. Accepts either clock time (10:00:00 AM, with seconds optional, or in a 24 hour format), or 'sunrise' or 'sunset', with an optional offset ('sunrise+10m', for instance)
+      at: 9:00
+    - type: time.schedule
+      at: 9:40
+    - type: time.schedule
+      at: 10:20
+    - type: time.schedule
+      at: 11:00
+
+    - type: time.schedule
+      at: 13:40
+    - type: time.schedule
+      at: 14:20
+    - type: time.schedule
+      at: 15:00
+    - type: time.schedule
+      at: 15:20
+
+    # - type: time.schedule
+    #   at: 16:00
+    - type: time.schedule
+      at: 16:40
+    - type: time.schedule
+      at: 17:20
+    - type: time.schedule
+      at: 18:00
+    - type: time.schedule
+      at: 18:40
+    - type: time.schedule
+      at: 19:20
+
+      # Optional. Days of the week to run automation on.
+      weekdays: [MON, TUE, WED, THU, FRI, SAT, SUN]
+
+  # ---- CONDITIONS ---- #
+  # Conditions are optional. Delete this section if it’s empty.
+  # Conditions will prevent an automation from starting if the conditions aren’t met.
+  # See g.co/home/script-editor-docs for documentation about how to use logical operators like “and”, “or”, and “not”.
+  condition:
+    type: device.state.MediaState # For devices that play media, the state of the media, such as whether or not it is playing.
+    state:
+      playbackState
+      # The current media playback state, for example, playing, paused, and so forth. [available operators: is, isNot]
+    is: PLAYING
+    device: オフィス - オフィス
+  # ---- ACTIONS ---- #
+  # Actions will start when a starter event takes place and all conditions are met.
+  # Actions will start in the order they appear in the script and with any delay specified.
+  # To add more than one action, duplicate the "- type" section under "actions".
+  actions:
+    - type: device.command.Mute # Mute or unmute the given device.
+      # Whether to mute or unmute the device.
+      mute: true
+      devices: オフィス - オフィス
+    - type: device.command.Mute # Mute or unmute the given device.
+      # Whether to mute or unmute the device.
+      mute: false
+      devices: オフィス - オフィス
